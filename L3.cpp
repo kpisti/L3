@@ -75,11 +75,13 @@ int main(int argc, char** argv)
                 deg[ij->first]+=fabs(ij->second);
                 }
             else
-                {deg[ii->first]+=fabs(ij->second);
+                {if (ii->first==ij->first)
+                    {deg[ii->first]+=fabs(ij->second);
+                    }
                 }
             }
         }
-        
+     
     char lag[255];
     sprintf(lag,"L3_predictions_%s.dat",fg);
     ofstream l(lag, ios::out);
